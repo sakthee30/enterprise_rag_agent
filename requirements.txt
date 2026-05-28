@@ -1,0 +1,14 @@
+langchain
+langchain-google-genai
+langchain-community
+langgraph
+chromadb
+fastapi
+uvicorn
+streamlit
+python-dotenv
+pydantic
+pypdf
+docx2txt
+flashrank
+requests
