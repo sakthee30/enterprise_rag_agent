@@ -123,6 +123,33 @@ def build_agent_graph():
 # Single compiled graph instance — imported by FastAPI and UI
 agent_graph = build_agent_graph()
 
+import time
+from config.settings import MAX_RETRIES, RETRY_DELAY
+
+def run_query_with_retry(query: str) -> dict:
+    """
+    Wraps run_query with retry logic.
+    Handles temporary Gemini 503 errors gracefully.
+    """
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            return run_query(query)
+        except Exception as e:
+            if "503" in str(e) or "UNAVAILABLE" in str(e):
+                if attempt < MAX_RETRIES:
+                    print(f"⚠️  Gemini unavailable. Retry {attempt}/{MAX_RETRIES} in {RETRY_DELAY}s...")
+                    time.sleep(RETRY_DELAY)
+                else:
+                    return {
+                        "query": query,
+                        "answer": "The AI service is temporarily unavailable. Please try again in a moment.",
+                        "agent": "system",
+                        "route": "error",
+                        "sources": [],
+                        "chunks_used": 0
+                    }
+            else:
+                raise
 
 def run_query(query: str) -> dict:
     """

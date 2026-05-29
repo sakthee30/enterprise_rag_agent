@@ -33,3 +33,7 @@ def extract_text(content):
     if isinstance(content, list):
         return content[0].get("text", "") if isinstance(content[0], dict) else str(content[0])
     return content
+
+# ── Retry settings ────────────────────────────────────────
+MAX_RETRIES = 3
+RETRY_DELAY = 5  # seconds between retries
