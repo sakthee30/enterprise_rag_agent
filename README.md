@@ -20,7 +20,7 @@ Enterprise RAG Agent answers questions about company policies, compliance rules,
 ---
 
 ## 🏗️ Architecture
-
+```
 User Query
 ↓
 FastAPI Backend (REST API)
@@ -37,7 +37,7 @@ RAG Pipeline (ChromaDB semantic search + reranking)
 Google Gemini LLM
 ↓
 Structured Response → Streamlit UI
-
+```
 ---
 
 ## ✨ Key Features
@@ -137,7 +137,7 @@ streamlit run ui/app.py
 ---
 
 ## 📁 Project Structure
-
+```
 enterprise_rag_agent/
 ├── agents/
 │   ├── init.py          # LangGraph graph builder + run_query()
@@ -161,7 +161,7 @@ enterprise_rag_agent/
 ├── Dockerfile               # Container definition
 ├── docker-compose.yml       # Multi-service orchestration
 └── requirements.txt         # Python dependencies
-
+```
 ---
 
 ## 🔌 API Endpoints
@@ -220,16 +220,6 @@ curl -X POST http://localhost:8000/api/v1/query \
 4. **Retrieval** — User query vectorized, top-5 semantically similar chunks retrieved
 5. **Generation** — Chunks + query sent to Gemini with agent-specific system prompt
 6. **Response** — Grounded answer with source citation returned to user
-
----
-
-## 👨‍💻 Author
-
-**Sakthee** — Software Engineer at Capgemini
-- 1.5 years on John Lewis Partnership (JLP/Waitrose) Oracle Retail account
-- Domain expertise in retail enterprise operations applied to this AI system
-- GitHub: [@sakthee30](https://github.com/sakthee30)
-- LinkedIn: [Add your LinkedIn URL]
 
 ---
 
