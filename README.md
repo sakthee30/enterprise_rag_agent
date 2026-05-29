@@ -223,6 +223,3 @@ curl -X POST http://localhost:8000/api/v1/query \
 
 ---
 
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
