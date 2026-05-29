@@ -8,7 +8,7 @@ load_dotenv()
 # ── LLM ──────────────────────────────────────────────
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GEMINI_MODEL = "gemini-3.5-flash"
-EMBEDDING_MODEL = "models/embedding-001"
+EMBEDDING_MODEL = "models/gemini-embedding-001"
 
 # ── Vector Store ─────────────────────────────────────
 CHROMA_DB_PATH = "./chroma_db"

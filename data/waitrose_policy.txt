@@ -1,0 +1,24 @@
+WAITROSE RETAIL POLICY DOCUMENT
+================================
+
+SECTION 1: PRODUCT RETURN POLICY
+Customers may return any product within 30 days of purchase with a valid receipt.
+Perishable goods cannot be returned once opened. Non-perishable items must be in
+original packaging. Refunds are processed within 5-7 business days.
+
+SECTION 2: COMPLIANCE GUIDELINES
+All store employees must complete mandatory compliance training every 6 months.
+Data handling must follow GDPR guidelines. Customer personal data must never be
+shared with third parties without explicit consent. CCTV footage is retained for
+28 days and can only be accessed by authorized personnel.
+
+SECTION 3: INCIDENT MANAGEMENT PROCEDURE
+When a system incident occurs, the on-call engineer must be notified within 15 minutes.
+All incidents must be logged in ServiceNow with priority classification P1 to P4.
+P1 incidents require immediate escalation to senior management. Resolution time
+targets: P1 = 1 hour, P2 = 4 hours, P3 = 8 hours, P4 = 24 hours.
+
+SECTION 4: BRANDING COMPLIANCE
+All marketing materials must be approved by the brand team before publication.
+The Waitrose logo must always appear in its approved color format. Font usage
+must follow the brand style guide. Unauthorized use of brand assets is prohibited.
