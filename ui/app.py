@@ -236,7 +236,7 @@ else:
     user_input = None
 
 # Chat input box
-typed_input = st.chat_input("Ask about policies, compliance, or incidents...")
+typed_input = st.text_input("💬 Ask about policies, compliance, or incidents...", key="query_input")
 if typed_input:
     user_input = typed_input
 
