@@ -1,11 +1,13 @@
 # ui/app.py
+# ── Config ────────────────────────────────────────────────
+import os
+# In Docker: API runs as service named 'api'
+# Locally: API runs on localhost
+API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000/api/v1")
 
 import streamlit as st
 import requests
 import json
-
-# ── Config ────────────────────────────────────────────────
-API_BASE_URL = "http://localhost:8000/api/v1"
 
 # ── Page Setup ────────────────────────────────────────────
 st.set_page_config(

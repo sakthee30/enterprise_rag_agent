@@ -1,0 +1,42 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+
+  # ── FastAPI Backend ──────────────────────────────────────
+  api:
+    build: .
+    container_name: enterprise_rag_api
+    ports:
+      - "8000:8000"        # host:container
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - API_BASE_URL=http://api:8000/api/v1
+    volumes:
+      - ./data:/app/data           # mount local data folder
+      - ./chroma_db:/app/chroma_db # persist ChromaDB across restarts
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ── Streamlit Frontend ───────────────────────────────────
+  ui:
+    build: .
+    container_name: enterprise_rag_ui
+    ports:
+      - "8501:8501"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    command: streamlit run ui/app.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - api              # UI starts only after API is up
+    restart: unless-stopped
+
+# ── Shared network ───────────────────────────────────────
+networks:
+  default:
+    name: enterprise_rag_network

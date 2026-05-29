@@ -1,0 +1,14 @@
+# .dockerignore
+
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.git/
+.gitignore
+chroma_db/
+*.md
+tests/
+test_*.py
+.pytest_cache/
